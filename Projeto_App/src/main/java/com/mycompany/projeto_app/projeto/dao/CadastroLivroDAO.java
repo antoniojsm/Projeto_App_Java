@@ -37,6 +37,7 @@ public class CadastroLivroDAO {
                 pst.setString(2, livro.getAutor_livro());
                 pst.setInt(3, livro.getDisponibilidade());
                 pst.executeUpdate();
+                pst.close();
             }
         } catch (SQLException e) {
             System.err.println("Erro ao cadastrar livro: " + e.getMessage());
@@ -75,6 +76,7 @@ public class CadastroLivroDAO {
                 ps.setInt(3, livro.getDisponibilidade());
                 ps.setInt(4, livro.getId_livro());
                 ps.executeUpdate();
+                ps.close();
             }
         } catch (SQLException e) {
             System.err.println("Erro ao atualizar livro: " + e.getMessage());
