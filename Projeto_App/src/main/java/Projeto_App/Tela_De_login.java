@@ -16,6 +16,7 @@ public class Tela_De_login{
         TelaLogin objTL=new TelaLogin();
         objTL.setVisible(true);
                 ConexaoMySQL.getConnection();
+                System.out.println("teste");
 
    }
 }
