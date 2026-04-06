@@ -6,6 +6,8 @@ package com.mycompany.projeto_app.projeto.dao;
 
 import com.mycompany.projeto_app.projeto.dto.CadastroAlunoDTO;
 import com.mycompany.projeto_app.projeto.factory.ConexaoMySQL;
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -77,7 +79,7 @@ public class CadastroAlunoDAO {
     // Método para atualizar um livro
     public void atualizarAluno(CadastroAlunoDTO aluno) {
         try {
-            String query = "UPDATE cadastroalunos SET nome_aluno = ?, cpf = ?, email_aluno = ?, emprestimo = ?, entrega = ?  WHERE id_aluno = ?";
+            MysqlxDatatypes.Scalar.String query = "UPDATE cadastroalunos SET nome_aluno = ?, cpf = ?, email_aluno = ?, emprestimo = ?, entrega = ?  WHERE id_aluno = ?";
             try (PreparedStatement ps = connection.prepareStatement(query)) {
                 ps.setString(1, aluno.getNome_aluno());
                 ps.setString(2, aluno.getCpf());
